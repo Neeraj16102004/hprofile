@@ -26,6 +26,8 @@ jobs:
    
     # Run sonar-scanner
       - name: SonarQube Scan
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME_21_X64 }}
         run: |
           sonar-scanner \
             -Dsonar.host.url="${{ secrets.SONAR_URL }}" \
