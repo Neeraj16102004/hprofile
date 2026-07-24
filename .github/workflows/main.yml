@@ -29,7 +29,7 @@ jobs:
     # Run sonar-scanner
       - name: SonarQube Scan
         run: |
-          mvn sonar:sonar \
+          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.host.url="${{ secrets.SONAR_URL }}" \
             -Dsonar.token="${{ secrets.SONAR_TOKEN }}" \
             -Dsonar.organization="${{ secrets.SONAR_ORGANIZATION }}" \
