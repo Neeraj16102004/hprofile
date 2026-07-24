@@ -21,14 +21,13 @@ jobs:
          java-version: '21'
 
     # Setup sonar-scanner
-      - name: Setup SonarQube
-        uses: warchant/setup-sonar-scanner@v7
+      # - name: Setup SonarQube
+      #   uses: warchant/setup-sonar-scanner@v7
    
     # Run sonar-scanner
       - name: SonarQube Scan
         run: |
-          sonar-scanner \
-            -Dsonar.scanner.javaExe="$JAVA_HOME/bin/java" \
+          mvn sonar:sonar \
             -Dsonar.host.url="${{ secrets.SONAR_URL }}" \
             -Dsonar.token="${{ secrets.SONAR_TOKEN }}" \
             -Dsonar.organization="${{ secrets.SONAR_ORGANIZATION }}" \
